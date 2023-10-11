@@ -1,0 +1,35 @@
+#-------------------------------------------------
+docker ps - Выводит список запущенных контейнеров.
+docker ps -a - Выводит список всез контейнеров
+docker images - Выводит список сохраненных образов
+
+
+docker search - Поиск по Docker Hub
+docker pull - Скачать образ из Docker Hub
+docker run -it -p 1234:8080 - Запуск контейнера интерактивно (с перенаправлением портов)
+docker run -d -p 8888:80 nginx - Запуск контейнера в фоновом режиме
+
+
+
+docker build -t <name:tag> . - Собирает образ из Dockerfile'а <имя:таг>
+
+docker rm   # Удаляет контейнер
+docker rmi  # Удаляет образ
+
+UPDATE IMAGE
+~~~~~~~~~~~~~
+docker exec -it <container ID> /bin/bash - "Зайти" в контейнер
+exit - Выйти из контейнера
+docker commit <container ID> <name:tag2> - Сохранить образ из контейнера
+
+Export/Import Docker Image to file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+docker save image:tag > arch_name.tar - Сохранить образ в архив
+docker load -i arch_name.tar - Загрузить образ из архива
+
+
+Kill and Delete Containers and Images
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+docker rm -f $(docker ps -aq)        # Delete all Containers
+docker rmi -f $(docker images -q)    # Delete all Images
+docker system prune  - Удаляет все неактивные образы и контейнеры
